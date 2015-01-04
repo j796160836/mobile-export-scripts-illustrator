@@ -1,56 +1,42 @@
 Mobile Export Script for Illustrator
-=================================
+===
 
-Script for exporting Illustrator artboards to Android and iOS PNG24 assets in the proper directory structure and scale types. 
+將 illustrator 的檔案根據不同大小尺寸自動輸出到對應的資料夾
 
-How To
----
-1. Import the script into Illustrator (Instructions for CC listed here)
+原始連結請參考  
+https://github.com/austynmahoney/mobile-export-scripts-illustrator
 
-> To include a script in the Scripts menu (File > Scripts), save the script in the Scripts folder, located in the `/lllustrator CC/Presets` folder in your lllustrator CC installation directory. The script’s filename, minus the file extension, appears in the Scripts menu. Scripts that you add to the Scripts folder while Illustrator is running do not appear in the Scripts menu until the next time you launch Illustrator.
+我有做一些修改  
+options.artBoardClipping = false;  
+原本採用整個畫布，現在將會以游標選取範圍為主
 
-2. Open the Illustrator file that includes the artboards you want to export.
-3. Select this script from the Illustrator Scripts menu.
-4. Choose the directory where you want the images to be exported to.
-5. A dialog with the supported scale types will open. If any Android types are selected, the proper directory will be created inside `/Android/{SCALE_TYPE}` (e.g. `/Android/drawable-mdpi`, `/Android/drawable-xhdpi`). Any iOS types will be in `/iOS`.
+## 安裝方式
 
-The name of the images will correspond to the name of the artboard. If the artboard is named `app-icon`, and you select all the available options, the script will export the artboard into the following directory structure.
+將檔案置放到對應的位置  
+
+* Windows  
+
 ```
-Selected Directory
-├───Android
-│   ├───drawable-mdpi
-│   │   └───app-icon.png
-│   ├───drawable-hdpi
-│   │   └───app-icon.png
-│   ├───drawable-xhdpi
-│   │   └───app-icon.png
-│   ├───drawable-xxhdpi
-│   │   └───app-icon.png
-│   ├───drawable-xxxhdpi
-│   │   └───app-icon.png
-└───iOS
-    ├───app-icon.png
-    ├───app-icon@2x.png
-    └───app-icon@3x.png
+C:\Program Files\Adobe\Adobe Illustrator\Presets\en_US\Scripts
 ```
+	
+* Mac  
 
-The baseline image used for Android is `xhdpi`, for iOS it is `@2x`. The script will scale up and down from these sizes.
-
-
-License
----
 ```
-Copyright 2014 Austyn Mahoney
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+/Applications/Adobe Illustrator/Presets.localized/en_US/Scripts
 ```
+  
+位置僅供參考，須根據版本不同而自行變化
+  
+## 使用方式
+
+1. 使用 xhdpi 維度作圖 (標準的 mdpi 的 2 倍大)
+2. 選取要輸出的範圍
+3. 執行 Script，勾選欲輸出的尺寸
+4. 將自動建立對應的 res 資料夾
+
+dp <-> px 互轉可參考  
+
+* http://developer.android.com/guide/practices/screens_support.html  
+* http://developer.android.com/design/style/iconography.html  
+* http://pixplicity.com/dp-px-converter/

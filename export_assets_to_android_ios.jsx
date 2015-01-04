@@ -102,7 +102,7 @@ function exportToFile(scaleFactor, resIdentifier, os) {
             
             options = new ExportOptionsPNG24();
             options.transparency = true;
-            options.artBoardClipping = true;
+            options.artBoardClipping = false;
             options.antiAliasing = true;
             options.verticalScale = scaleFactor;
             options.horizontalScale = scaleFactor;
